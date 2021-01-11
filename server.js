@@ -4,8 +4,8 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 
 app.use(cors());
-app.use(bodyParser.json({ limit: '50mb', extended: true }));
-app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
+app.use(bodyParser.json({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 const mainRouter = require('./routes/main.route');
 

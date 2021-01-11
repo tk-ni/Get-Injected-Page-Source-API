@@ -2,11 +2,10 @@ const express = require('express');
 const puppeteerManager = require('../puppeteerManager');
 const router = express.Router();
 
-router.post('/', async (req,res)=>{
-    console.log(req.body.url);
-    if(req.body.url){
+router.get('/', async (req,res)=>{
+    if(req.query.url){
         try{
-            let html = await puppeteerManager.getPageHTML(req.body.url);
+            let html = await puppeteerManager.getPageHTML(req.query.url);
             res.status(200).send(html);
         }catch(e){
             console.log(e);
